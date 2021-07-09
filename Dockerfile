@@ -1,4 +1,5 @@
-FROM ubuntu:16.04
+ARG base_image=balenalib/raspberry-pi-debian:latest
+FROM $base_image
 EXPOSE 7575:7575
 VOLUME ["/data"]
 RUN apt-get update
