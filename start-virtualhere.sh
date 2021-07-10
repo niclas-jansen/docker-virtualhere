@@ -1,9 +1,13 @@
 #!/bin/sh -e
 #
 # Script used to setup and run virtualhere
-curl -s https://install.zerotier.com | sudo bash
-sudo zerotier-cli join $NETWORK_ID
-sudo zerotier-cli listnetworks
+if ! [ -x "$(command -v zerotier-cli)" ]; then
+    curl -s https://install.zerotier.com | sudo bash
+    sudo zerotier-cli join $NETWORK_ID
+    sudo zerotier-cli listnetworks
+else
+    sudo zerotier-cli listnetworks
+fi
 
 
 ARCH=`uname -m`
