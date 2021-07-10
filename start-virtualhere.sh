@@ -6,8 +6,7 @@ if ! [ -x "$(command -v zerotier-cli)" ]; then
     sudo zerotier-cli join $NETWORK_ID
     sudo zerotier-cli listnetworks
 else
-    sudo modprobe tun
-    sudo systemctl start zerotier-one
+    service zerotier-one start
     sudo zerotier-cli status
 fi
 
