@@ -34,7 +34,7 @@ wget -N https://www.virtualhere.com/sites/default/files/usbserver/$ARCH_VR || ec
 chmod +x ./$ARCH_VR
 if [[ $SERVER_NAME != '' ]]
 then 
-    echo "ServerName=$SERVER_NAME" >> config.ini
+    echo "ServerName=$SERVER_NAME" > config.ini
 fi
 ./$ARCH_VR
 
